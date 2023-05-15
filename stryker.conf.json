@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "coverageAnalysis": "perTest",
+  "mutate": ["src/**/*kata.ts"],
+  "reporters": ["progress", "dots", "dashboard", "html"],
+  "testRunner": "jest",
+  "checkers": ["typescript"],
+  "tsconfigFile": "tsconfig.json",
+  "ignoreStatic": true,
+  "jest": {
+    "projectType": "custom",
+    "configFile": "./jest.config.json",
+    "enableFindRelatedTests": true
+  },
+  "clearTextReporter": {
+    "allowColor": true,
+    "allowEmojis": true,
+    "logTests": true,
+    "maxTestsToLog": 3
+  },
+  "mutator": {
+    "plugins": null,
+    "excludedMutations": ["StringLiteral"]
+  }
+}

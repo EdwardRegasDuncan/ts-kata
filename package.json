@@ -1,0 +1,93 @@
+{
+  "name": "ts-kata",
+  "version": "1.0.0",
+  "description": "Typescript kata starting project",
+  "author": "Pedro Moreira Santos",
+  "homepage": "https://github.com/pedromsantos/ts-kata",
+  "keywords": [
+    "kata",
+    "dojo",
+    "code",
+    "practice",
+    "tdd"
+  ],
+  "license": "MIT",
+  "main": "./lib/kata.js",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "clean": "rm -r ./lib",
+    "precommit": "npm-run-all -p lint types test build",
+    "ci": "npm-run-all -p lint types test:ci build",
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint . --cache --cache-location ./node_modules/.cache/eslint --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "types": "type-coverage -at-least 99",
+    "types-report": "typescript-coverage-report --threshold 99",
+    "prepare": "husky install",
+    "test": "jest --watchAll=false",
+    "test:ci": "jest test --watchAll=false --coverage=true",
+    "mutants": "stryker run",
+    "watch": "jest --watch",
+    "fizz": "jest -i src/1_FizzBuzz/test.ts",
+    "leap": "jest -i src/2_LeapYear/test.ts",
+    "fib": "jest -i src/3_Fibonacci/test.ts",
+    "stack": "jest -i src/4_StackKata/test.ts",
+    "roman": "jest -i src/5_RomanNumerals/test.ts",
+    "prime": "jest -i src/6_PrimeFactors/test.ts",
+    "tic": "jest -i src/7_TicTacToe/test.ts",
+    "yahtzee": "jest -i src/8_Yahtzee/test.ts",
+    "tennis": "jest -i src/10_Tennis/test.ts",
+    "rose": "jest -i src/11_GildedRose/test.ts",
+    "golf": "jest -i src/12_RefactoringGolf/*",
+    "smelly": "jest -i src/13_SmellyTicTacToe/test.ts",
+    "copier": "jest -i src/14_CharacterCopier/test.ts",
+    "esa": "jest -i src/15_ESAMarsRover/test.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@commitlint/format": "^17.4.4",
+    "@stryker-mutator/core": "^6.3.1",
+    "@stryker-mutator/jest-runner": "^6.3.1",
+    "@stryker-mutator/typescript-checker": "^6.3.1",
+    "@types/jest": "^29.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.5",
+    "@typescript-eslint/parser": "^5.59.5",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-sonarjs": "^0.19.0",
+    "fast-check": "^3.8.1",
+    "husky": "^8.0.3",
+    "jest": "^28.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.8",
+    "ts-coverage": "^0.1.5",
+    "ts-jest": "^28.0.8",
+    "type-coverage": "^2.25.3",
+    "typescript": "^4.9.5",
+    "typescript-coverage-report": "^0.7.0"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "formatter": "@commitlint/format",
+    "rules": {
+      "subject-case": [
+        2,
+        "never",
+        [
+          "start-case",
+          "pascal-case"
+        ]
+      ]
+    }
+  }
+}
