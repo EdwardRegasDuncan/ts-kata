@@ -32,10 +32,10 @@ export class TennisGame1 implements TennisGame {
       return this.translateScore2('');
     }
 
-    return this.newMethod();
+    return this.newMethod1();
   }
 
-  private newMethod() {
+  private newMethod1() {
     let score = '';
     let tempScore = 0;
     for (let i = 1; i < 3; i++) {
@@ -45,20 +45,25 @@ export class TennisGame1 implements TennisGame {
         score += '-';
         tempScore = this.m_score2;
       }
-      switch (tempScore) {
-        case 0:
-          score += 'Love';
-          break;
-        case 1:
-          score += 'Fifteen';
-          break;
-        case 2:
-          score += 'Thirty';
-          break;
-        case 3:
-          score += 'Forty';
-          break;
-      }
+      score = this.newMethod2(tempScore, score);
+    }
+    return score;
+  }
+
+  private newMethod2(tempScore: number, score: string) {
+    switch (tempScore) {
+      case 0:
+        score += 'Love';
+        break;
+      case 1:
+        score += 'Fifteen';
+        break;
+      case 2:
+        score += 'Thirty';
+        break;
+      case 3:
+        score += 'Forty';
+        break;
     }
     return score;
   }
