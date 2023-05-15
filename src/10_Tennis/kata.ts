@@ -25,7 +25,7 @@ export class TennisGame1 implements TennisGame {
 
   getScore(): string {
     if (this.m_score1 === this.m_score2) {
-      return this.translateScore('');
+      return this.translateScore();
     }
 
     if (this.m_score1 >= 4 || this.m_score2 >= 4) {
@@ -72,21 +72,16 @@ export class TennisGame1 implements TennisGame {
     return score;
   }
 
-  private translateScore(score: string) {
+  private translateScore() {
     switch (this.m_score1) {
       case 0:
-        score = 'Love-All';
-        break;
+        return 'Love-All';
       case 1:
-        score = 'Fifteen-All';
-        break;
+        return 'Fifteen-All';
       case 2:
-        score = 'Thirty-All';
-        break;
+        return 'Thirty-All';
       default:
-        score = 'Deuce';
-        break;
+        return 'Deuce';
     }
-    return score;
   }
 }
